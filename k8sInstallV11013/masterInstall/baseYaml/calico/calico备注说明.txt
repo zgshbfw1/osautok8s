@@ -1,0 +1,7 @@
+保证docker已经加载镜像。
+
+1. 需要创建目录/var/lib/calico和/var/run/calic和/etc/calico/
+
+2. 对calico配置文件修改etcd以及master的IP配置信息.
+3. 注意必须保证docker的tunl0正常。
+4. 加载docker的镜像quay.io/calico/node:v3.1.0。

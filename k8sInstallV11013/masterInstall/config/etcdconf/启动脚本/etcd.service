@@ -1,0 +1,26 @@
+[Unit]
+Description=Etcd Server
+After=network.target
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/local/bin/etcd \
+--name=master-1 \
+--data-dir=/var/lib/etcd/default.etcd \
+--listen-peer-urls=https://10.129.55.30:2380 \
+--listen-client-urls=https://10.129.55.30:2379,http://10.129.55.30:2390,http://127.0.0.1:2379 \
+--advertise-client-urls=https://10.129.55.30:2379 \
+--initial-advertise-peer-urls=https://10.129.55.30:2380 \
+--initial-cluster=master-1=https://10.129.55.30:2380,master-2=https://10.129.55.61:2380,node-2=https://10.129.55.65:2380 \
+--initial-cluster-token=etcd-cluster \
+--initial-cluster-state=new \
+--cert-file=/etc/etcd/ssl/etcd.pem \
+--key-file=/etc/etcd/ssl/etcd-key.pem \
+--peer-cert-file=/etc/etcd/ssl/etcd.pem \
+--peer-key-file=/etc/etcd/ssl/etcd-key.pem \
+--trusted-ca-file=/etc/etcd/ssl/ca.pem \
+--peer-trusted-ca-file=/etc/etcd/ssl/ca.pem
+Restart=on-failure
+LimitNOFILE=65536

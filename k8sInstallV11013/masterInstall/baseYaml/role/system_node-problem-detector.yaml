@@ -1,0 +1,33 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  creationTimestamp: 2018-08-21T08:04:18Z
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+  name: system:node-problem-detector
+  resourceVersion: "47"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/clusterroles/system%3Anode-problem-detector
+  uid: cdaa7412-a518-11e8-a33b-060eb4000e9d
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - get
+- apiGroups:
+  - ""
+  resources:
+  - nodes/status
+  verbs:
+  - patch
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+  - update

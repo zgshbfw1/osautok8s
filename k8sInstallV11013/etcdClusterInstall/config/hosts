@@ -1,0 +1,8 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+10.129.51.132  master1
+10.129.51.117  master2
+10.129.52.142  etcd1
+10.129.52.162  etcd2
+10.129.52.194  etcd3
+10.129.51.26  node1

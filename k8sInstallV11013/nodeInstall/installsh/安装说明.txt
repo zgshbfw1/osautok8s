@@ -1,0 +1,7 @@
+1. 保证calico docker镜像已经安装。
+2. 保证单向ssh认证。
+3. 保证/etc/kubernetes/ssl目录下	kubelet-client.key、kubelet-client.crt
+4. /var/lib/calico、/var/run/calico、/etc/calico/、/opt/cni/目录创建。
+5. 保证路由calico信息正常，保证网卡正常。
+6、保证docker的tunl0正常。
+7、保证路由网关正常。

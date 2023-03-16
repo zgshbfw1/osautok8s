@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard
+  namespace: kube-system
+  resourceVersion: "315127829"
+  selfLink: /api/v1/namespaces/kube-system/services/kubernetes-dashboard
+  uid: 14db0ae9-bd4e-11ec-95ea-060eb4000e9d
+spec:
+  clusterIP: 172.17.120.167
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: dashboard-tls
+    nodePort: 30000
+    port: 443
+    protocol: TCP
+    targetPort: 8443
+  selector:
+    k8s-app: kubernetes-dashboard
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

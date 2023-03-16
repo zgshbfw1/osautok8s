@@ -1,0 +1,37 @@
+etcd和master服务器之间要做双向免密，不涉及node节点。
+
+1. 创建并修改三个json文件。
+etcd-root-ca-csr.json 
+
+etcd-csr.json
+etcd-gencert.json
+
+2. 创建etcd配置文件etcd.conf,并存放于/etc/etcd/目录下。
+
+3. etcd的key的生成命令：
+第一步生成CA自签名证书。会生成文件
+cfssl gencert --initca=true k8s-root-ca-csr.json | cfssljson --bare k8s-root-ca
+生成以下文件：
+etcd-root-ca.csr
+etcd-root-ca.pem
+etcd-root-ca-key.pem
+第二步 生成ETCD证书。
+cfssl gencert --ca /root/k8s/etcd/ssl/etcd-root-ca.pem
+ --ca-key /root/k8s/etcd/ssl/etcd-root-ca-key.pem
+ --config /root/k8s/etcd/ssl/etcd-gencert.json
+ --profile kubernetes /root/k8s/etcd/ssl/etcd-csr.json | cfssljson --bare etcd
+生成以下文件：
+etcd.csr
+etcd.pem
+etcd-key.pem
+
+4. 配置etcd的客户端。把etcd服务端的证书以及文件复制到master和etcd的节点上面。/etc/etcd/ssl目录下，清单如下。
+etcd.csr
+etcd.pem
+etcd-key.pem
+
+etcd-root-ca.csr
+etcd-root-ca.pem
+etcd-root-ca-key.pem
+
+etcd.conf

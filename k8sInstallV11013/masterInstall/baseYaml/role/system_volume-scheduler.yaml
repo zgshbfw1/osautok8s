@@ -1,0 +1,31 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  creationTimestamp: 2018-08-21T08:04:18Z
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+  name: system:volume-scheduler
+  resourceVersion: "60"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/clusterroles/system%3Avolume-scheduler
+  uid: cdb245e2-a518-11e8-a33b-060eb4000e9d
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - persistentvolumes
+  verbs:
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - storage.k8s.io
+  resources:
+  - storageclasses
+  verbs:
+  - get
+  - list
+  - watch

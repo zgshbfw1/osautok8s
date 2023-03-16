@@ -1,0 +1,40 @@
+{
+    "CN": "kubernetes",
+    "hosts": [
+        "127.0.0.1",
+        "172.17.0.1",
+"10.129.51.132",
+ "10.129.51.117",
+ "10.129.52.142",
+ "10.129.52.162",
+ "10.129.52.194",
+ "10.129.51.26",
+	"master2",
+        "172.17.0.2",
+	"etcd1",
+	"etcd2",
+	"etcd3",
+	"node1",
+        "master1",
+        "*.kubernetes.master",
+        "localhost",
+        "kubernetes",
+        "kubernetes.default",
+        "kubernetes.default.svc",
+        "kubernetes.default.svc.cluster",
+        "kubernetes.default.svc.cluster.local"
+    ],
+    "key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [
+        {
+            "C": "CN",
+            "ST": "BeiJing",
+            "L": "BeiJing",
+            "O": "k8s",
+            "OU": "System"
+        }
+    ]
+}

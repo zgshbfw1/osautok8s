@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: 2018-08-21T09:15:50Z
+  name: system:certificates.k8s.io:certificatesigningrequests:selfnodeserver
+  resourceVersion: "4445"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/clusterroles/system%3Acertificates.k8s.io%3Acertificatesigningrequests%3Aselfnodeserver
+  uid: cc3a1179-a522-11e8-8b12-065c62000e9f
+rules:
+- apiGroups:
+  - certificates.k8s.io
+  resources:
+  - certificatesigningrequests/selfnodeserver
+  verbs:
+  - create

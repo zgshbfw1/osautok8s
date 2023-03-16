@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2023-03-14T08:00:10Z
+  labels:
+    component: apiserver
+    provider: kubernetes
+  name: kubernetes
+  namespace: default
+  resourceVersion: "6"
+  selfLink: /api/v1/namespaces/default/services/kubernetes
+  uid: 3dfea000-c23e-11ed-9069-06df2c000b39
+spec:
+  clusterIP: 172.17.0.1
+  ports:
+  - name: https
+    port: 443
+    protocol: TCP
+    targetPort: 6443
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
